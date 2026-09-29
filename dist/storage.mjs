@@ -1,4 +1,4 @@
-const DB_NAME='atlas-local-v1'+(new URLSearchParams(location.search).has('demo-check')?'-check':'');
+const DB_NAME='atlas-local-v1'+(new URLSearchParams(location.search).has('demo-check')?'-check'+(['','1'].includes(new URLSearchParams(location.search).get('demo-check'))?'':'-'+new URLSearchParams(location.search).get('demo-check')):'');
 let dbPromise;
 function database(){return dbPromise??=new Promise((resolve,reject)=>{const request=indexedDB.open(DB_NAME,1);request.onupgradeneeded=()=>request.result.createObjectStore('app');request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error);});}
 export async function readState(){const db=await database();return new Promise((resolve,reject)=>{const tx=db.transaction('app','readonly');const request=tx.objectStore('app').get('state');request.onsuccess=()=>resolve(request.result||null);request.onerror=()=>reject(request.error);});}
