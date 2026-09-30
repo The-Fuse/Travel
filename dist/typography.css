@@ -1,0 +1,155 @@
+em { font-style: normal !important; font-family: 'DM Sans', sans-serif !important; }
+
+/* One upright type family in every screen, including the preserved journey reader. */
+body, body *, button, input, textarea, select, dialog {
+  font-family: 'DM Sans', sans-serif !important;
+  font-style: normal !important;
+}
+
+/* Conversation and photo views are consistent, curved bottom sheets. */
+dialog#editor.comments-sheet {
+  position: fixed !important;
+  inset: auto 0 0 !important;
+  margin: 0 auto !important;
+  width: min(620px, 100%) !important;
+  max-width: none !important;
+  height: min(590px, 82dvh) !important;
+  max-height: 82dvh !important;
+  border-radius: 28px 28px 0 0 !important;
+  overflow: hidden !important;
+  background: #f8fbfd !important;
+}
+#editor.comments-sheet .modal-frame { height: 100%; max-height: 100%; }
+#editor.comments-sheet .modal-header { position: relative; min-height: 43px; }
+#editor.comments-sheet .modal-header::before {
+  content: ''; position: absolute; top: 11px; left: 50%; transform: translateX(-50%);
+  width: 37px; height: 4px; border-radius: 4px; background: #bfd1d9;
+}
+#editor.comments-sheet .modal-header .eyebrow { visibility: hidden; }
+#editor.comments-sheet .modal-content { flex: 1; min-height: 0; overflow-y: auto; padding-top: 15px; }
+#editor.comments-sheet .modal-content h2 { font-size: 23px; margin-bottom: 10px; }
+#editor.comments-sheet .modal-footer { padding-bottom: calc(17px + env(safe-area-inset-bottom, 0px)); }
+#editor.comments-sheet .sheet-comment-form textarea { resize: none; }
+
+dialog#stop-sheet, dialog#lightbox {
+  position: fixed !important;
+  inset: auto 0 0 !important;
+  margin: 0 auto !important;
+  max-width: none !important;
+  max-height: 90dvh !important;
+  border-radius: 30px 30px 0 0 !important;
+  overflow: hidden !important;
+}
+dialog#stop-sheet { width: min(620px, 100%) !important; }
+dialog#lightbox { width: min(960px, 100%) !important; }
+#stop-sheet .sheet-scroll { max-height: 90dvh; overflow-y: auto; }
+#lightbox > img { display: block; width: 100%; max-height: 70dvh; object-fit: contain; }
+@media (max-width: 620px) {
+  dialog#editor.comments-sheet, dialog#stop-sheet, dialog#lightbox {
+    border-radius: 25px 25px 0 0 !important;
+    border-left: 0 !important; border-right: 0 !important; border-bottom: 0 !important;
+  }
+  #lightbox > img { max-height: 65dvh; }
+}
+
+dialog#editor.gallery-sheet {
+  position: fixed !important;
+  inset: auto 0 0 !important;
+  margin: 0 auto !important;
+  width: min(760px, 100%) !important;
+  max-width: none !important;
+  height: min(760px, 86dvh) !important;
+  max-height: 86dvh !important;
+  border-radius: 28px 28px 0 0 !important;
+  overflow: hidden !important;
+  background: #f8fbfd !important;
+}
+#editor.gallery-sheet .modal-frame { height: 100%; max-height: 100%; }
+#editor.gallery-sheet .modal-content { flex: 1; min-height: 0; overflow-y: auto; }
+#editor.gallery-sheet .modal-header { position: relative; min-height: 43px; }
+#editor.gallery-sheet .modal-header::before {
+  content: ''; position: absolute; top: 11px; left: 50%; transform: translateX(-50%);
+  width: 37px; height: 4px; border-radius: 4px; background: #bfd1d9;
+}
+#editor.gallery-sheet .modal-header .eyebrow { visibility: hidden; }
+@media(max-width:620px){dialog#editor.gallery-sheet{border-radius:25px 25px 0 0 !important;border-left:0 !important;border-right:0 !important;border-bottom:0 !important}}
+
+/* Social sheets share one restrained surface in the feed and journey detail. */
+dialog#editor.comments-sheet, dialog#editor.likes-sheet {
+  position: fixed !important;
+  inset: auto 0 0 !important;
+  margin: 0 auto !important;
+  width: min(600px, 100%) !important;
+  max-width: none !important;
+  border-radius: 20px 20px 0 0 !important;
+  border: 1px solid #e5e9e8 !important;
+  border-bottom: 0 !important;
+  background: #f8faf9 !important;
+  box-shadow: 0 -18px 60px #16293020 !important;
+  overflow: hidden !important;
+  color: #29383e !important;
+}
+dialog#editor.comments-sheet { height: min(530px, 76dvh) !important; max-height: 76dvh !important; }
+dialog#editor.likes-sheet { height: min(430px, 68dvh) !important; max-height: 68dvh !important; }
+#editor.comments-sheet .modal-frame, #editor.likes-sheet .modal-frame { height: 100%; max-height: 100%; }
+#editor.comments-sheet .modal-header, #editor.likes-sheet .modal-header {
+  min-height: 74px; padding: 24px 22px 11px; border-bottom: 1px solid #e4e9e8;
+  background: transparent; display: flex; align-items: center; justify-content: space-between;
+}
+#editor.comments-sheet .modal-header::before, #editor.likes-sheet .modal-header::before { display: none; }
+.social-sheet-heading { position: relative; display: flex; align-items: center; min-height: 34px; }
+.social-sheet-grabber { position: absolute; top: -15px; left: 0; width: 32px; height: 3px; border-radius: 3px; background: #b9c8ca; }
+.social-sheet-heading h2 { display: flex; align-items: center; gap: 9px; margin: 0 !important; font-size: 19px !important; line-height: 1.2; font-weight: 600; letter-spacing: -.4px; }
+.social-sheet-heading small { font-size: 12px; color: #728991; font-weight: 400; letter-spacing: 0; }
+.social-sheet-close { display: grid; place-items: center; width: 31px; height: 31px; padding: 0; color: #68808a; background: transparent; border: 1px solid #dce5e6; border-radius: 50%; }
+.social-sheet-close svg { width: 15px; height: 15px; }
+#editor.comments-sheet .modal-content, #editor.likes-sheet .modal-content { flex: 1; min-height: 0; padding: 0 22px 20px; overflow-y: auto; }
+.sheet-post-context { margin: 0; padding: 13px 0; font-size: 12px; color: #8a9da2; border-bottom: 1px solid #e5eae8; }
+.sheet-post-context strong { color: #516a72; font-weight: 500; }
+#editor.comments-sheet .comment, #editor.likes-sheet .likes-person { border-bottom: 1px solid #e5eae8; padding: 15px 0; gap: 11px; }
+#editor.comments-sheet .person-avatar, #editor.likes-sheet .person-avatar, #editor.comments-sheet .sheet-comment-form .person-avatar { flex: 0 0 34px; width: 34px; height: 34px; font-size: 10px; }
+#editor.comments-sheet .comment strong, #editor.likes-sheet .likes-person strong { font-size: 13px; color: #354e57; font-weight: 600; }
+#editor.comments-sheet .comment strong small, #editor.likes-sheet .likes-person small { font-size: 10px; color: #9aabb0; }
+#editor.comments-sheet .comment p { color: #576f76; font-size: 13px; line-height: 1.55; margin-top: 4px; }
+#editor.likes-sheet .likes-person { align-items: center; }
+#editor.likes-sheet .likes-person > svg { margin-left: auto; width: 14px; height: 14px; color: #9caeb2; }
+#editor.comments-sheet .comment-empty, #editor.likes-sheet .comment-empty { font-size: 13px; color: #81969d; padding: 28px 0; }
+#editor.likes-sheet .likes-aggregate { margin-top: 16px; font-size: 11px; color: #8da1a7; }
+#editor.comments-sheet .modal-footer { padding: 11px 22px calc(11px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid #e4e9e8; background: #f8faf9; }
+#editor.comments-sheet .sheet-comment-form { display: flex; align-items: center; gap: 10px; }
+#editor.comments-sheet .sheet-comment-form textarea { min-height: 38px; height: 38px; max-height: 92px; padding: 9px 11px; resize: vertical; font-size: 12px; line-height: 1.4; background: #fff; border: 1px solid #dfe7e7; border-radius: 8px; box-shadow: none; }
+#editor.comments-sheet .sheet-comment-form .button { display: grid; place-items: center; min-width: 38px; width: 38px; height: 38px; padding: 0; border-radius: 8px; background: #334f59; color: #fff; }
+#editor.comments-sheet .sheet-comment-form .button svg { width: 16px; height: 16px; }
+@media(max-width:620px){
+ dialog#editor.comments-sheet, dialog#editor.likes-sheet { border-left: 0 !important; border-right: 0 !important; border-radius: 20px 20px 0 0 !important; }
+ #editor.comments-sheet .modal-header, #editor.likes-sheet .modal-header { padding-inline: 18px; }
+ #editor.comments-sheet .modal-content, #editor.likes-sheet .modal-content { padding-inline: 18px; }
+ #editor.comments-sheet .modal-footer { padding-left: 14px; padding-right: 14px; }
+}
+#editor:is(.comments-sheet,.likes-sheet)::before { display: none !important; }
+#editor.likes-sheet .likes-person small { display: block; margin-top: 3px; }
+#editor.comments-sheet .sheet-comment-form .button { width: 49px; min-width: 49px; font-size: 11px; font-weight: 600; }
+
+/* The journey reader uses the same readable type scale as the feed. */
+body[data-screen="journey"] #journey .canvas-heading { padding: 14px 7px 16px; }
+body[data-screen="journey"] #journey .canvas-meta { gap: 7px; font-size: 12px; line-height: 1.4; color: #627178; }
+body[data-screen="journey"] #journey .canvas-meta strong { font-weight: 600; color: #26363d; }
+body[data-screen="journey"] #journey .canvas-region { font-size: 12px; font-weight: 600; letter-spacing: 0; }
+body[data-screen="journey"] #journey .canvas-region small { font-size: 11px; letter-spacing: 0; }
+body[data-screen="journey"] #journey .point-label small { font-size: 10px; line-height: 1.3; letter-spacing: .04em; font-weight: 600; }
+body[data-screen="journey"] #journey .point-label strong { font-size: 17px; line-height: 1.25; letter-spacing: -.035em; font-weight: 600; }
+body[data-screen="journey"] #journey .point-label span { font-size: 11px; line-height: 1.35; }
+body[data-screen="journey"] #journey .point-memory { font-size: 11px; line-height: 1.3; }
+body[data-screen="journey"] #journey .canvas-legend { font-size: 11px; }
+body[data-screen="journey"] #journey .memory-count strong { font-size: 13px; font-weight: 600; }
+body[data-screen="journey"] #journey .detail-caption { max-width: 760px; margin: 22px auto 0; padding: 0 7px; }
+body[data-screen="journey"] #journey .detail-caption p { color: #34454d; font-size: 15px; font-weight: 400; line-height: 1.65; letter-spacing: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+body[data-screen="journey"] #journey .detail-caption + .detail-conversation { margin-top: 22px; }
+body[data-screen="journey"] #journey .canvas-footer { justify-content: flex-end; }
+
+/* Bottom-sheet headings and notes follow the app's compact text hierarchy. */
+#stop-sheet .sheet-hero h2 { font-size: 23px; line-height: 1.2; font-weight: 600; letter-spacing: -.035em; }
+#stop-sheet .sheet-hero .eyebrow { font-size: 10px; font-weight: 500; letter-spacing: .05em; }
+#stop-sheet .sheet-note p { font-size: 15px; line-height: 1.6; font-weight: 400; letter-spacing: 0; }
+#stop-sheet .sheet-note-head span, #stop-sheet .sheet-meta, #stop-sheet .sheet-count { font-size: 11px; letter-spacing: 0; font-weight: 500; }
+#editor.gallery-sheet .modal-content h2, #editor:not(.story-modal):not(.comments-sheet):not(.likes-sheet) .modal-content h2 { font-size: 23px; line-height: 1.25; font-weight: 600; letter-spacing: -.035em; }
